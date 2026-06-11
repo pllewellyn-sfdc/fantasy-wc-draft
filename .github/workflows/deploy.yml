@@ -1,44 +1,80 @@
-name: Deploy to GitHub Pages
-
+name: Update scores and deploy
+ 
+# Triggers:
+#  - schedule: every 15 minutes during the World Cup window. Public
+#    repos get unlimited Actions minutes, so this is free.
+#  - push to main: e.g. when Claude commits a code or data change.
+#  - workflow_dispatch: lets you click "Run workflow" in the
+#    Actions tab to force an immediate refresh.
 on:
+  schedule:
+    - cron: '*/15 * * * *'
   push:
     branches: [main]
   workflow_dispatch: {}
-
+ 
+# `contents: write` lets the cron job commit updated scores back to
+# main. The other two are required by actions/deploy-pages.
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
-
+ 
+# Don't run two Pages deploys at once.
 concurrency:
   group: pages
   cancel-in-progress: false
-
+ 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
         uses: actions/checkout@v4
-
+        with:
+          # Use the default token; permissions above already allow it
+          # to push back.
+          token: ${{ secrets.GITHUB_TOKEN }}
+ 
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-
+ 
+      # Only refresh scores on schedule / manual runs. Code-driven
+      # pushes don't need to hit ESPN.
+      - name: Refresh scores from ESPN
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: node scripts/update-scores.cjs
+ 
+      - name: Commit any score changes
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: |
+          if git diff --quiet src/data/data.json; then
+            echo "No score changes to commit"
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add src/data/data.json
+            git commit -m "Auto-update scores from ESPN"
+            git push
+          fi
+ 
       - name: Install dependencies
         run: npm install --no-audit --no-fund
-
+ 
       - name: Build the app
+        # VITE_BASE prefixes asset URLs with the repo name so they
+        # resolve correctly under https://<user>.github.io/<repo>/.
         env:
           VITE_BASE: /${{ github.event.repository.name }}/
         run: npm run build
-
+ 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
-
+ 
   deploy:
     needs: build
     runs-on: ubuntu-latest
