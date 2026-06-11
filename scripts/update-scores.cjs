@@ -116,9 +116,6 @@ async function main() {
  
     const state = competition.status?.type?.state;
     const completed = competition.status?.type?.completed === true;
-    // Only update matches that are in progress or completed; skip
-    // pre-game placeholders so we don't blank scores already set.
-    if (state !== 'in' && !completed) continue;
  
     const competitors = competition.competitors || [];
     if (competitors.length !== 2) continue;
@@ -145,6 +142,19 @@ async function main() {
           (m.teamA === awayId && m.teamB === homeId)),
     );
     if (!match) continue;
+ 
+    // Always update kickoff. ESPN returns the scheduled date as an
+    // ISO 8601 string on every event, even for unplayed matches.
+    const kickoff = competition.date || ev.date;
+    if (kickoff && match.kickoff !== kickoff) {
+      match.kickoff = kickoff;
+      updated += 1;
+    }
+ 
+    // Only update score/winner for matches that are in progress or
+    // completed. Skip pre-game so we don't blank scores or stamp a
+    // winner before kickoff.
+    if (state !== 'in' && !completed) continue;
  
     const homeScore = parseInt(home.score, 10);
     const awayScore = parseInt(away.score, 10);
