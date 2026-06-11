@@ -47,6 +47,9 @@ export interface Match {
   // existing data.json entries without it stay valid; the ESPN
   // updater fills it in on the first run that sees the match.
   kickoff?: string | null;
+  // Broadcast network short-name, e.g. "FOX" or "Telemundo". US
+  // English broadcast preferred; null if ESPN didn't list one.
+  tvChannel?: string | null;
   // Optional human label used while a knockout slot is unfilled,
   // e.g. "Winner A" or "Runner-up B" or "W49".
   placeholderA?: string;

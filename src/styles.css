@@ -455,6 +455,26 @@ th {
   grid-area: teamB;
 }
  
+/* Inline run of flag + name inside each team cell. Keeps the
+   spacing between flag and name consistent regardless of which
+   variant (full or abbreviated) is currently visible. */
+.ro-team-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+}
+ 
+.ro-team-text .flag {
+  flex: none;
+}
+ 
+/* Show full names by default (desktop). Mobile media query below
+   flips this. */
+.team-name-abbr {
+  display: none;
+}
+ 
 .ro-team {
   display: flex;
   align-items: center;
@@ -559,7 +579,8 @@ th {
   }
  
   /* Match row: kickoff jumps to its own line on top, then the
-     three-column matchup row underneath. */
+     three-column matchup row underneath. With abbreviated team
+     names every row is now exactly one line tall. */
   .match-row-ro {
     grid-template-columns: 1fr auto 1fr;
     grid-template-areas:
@@ -574,9 +595,21 @@ th {
   .ro-team {
     gap: 4px;
     flex-wrap: nowrap;
+    overflow: hidden;
   }
  
   .ro-score {
     padding: 2px 8px;
+  }
+ 
+  /* Swap full names for 3-letter codes so every row has the same
+     height and the "vs" stays visually centered. */
+  .team-name-full {
+    display: none;
+  }
+  .team-name-abbr {
+    display: inline;
+    font-weight: 600;
+    letter-spacing: 0.02em;
   }
 }

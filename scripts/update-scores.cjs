@@ -151,6 +151,37 @@ async function main() {
       updated += 1;
     }
  
+    // Always update TV channel. ESPN's geoBroadcasts is an array of
+    // per-region broadcasters. Prefer a US English entry; fall back
+    // to the first one available; finally try the lighter
+    // `broadcasts` field.
+    const geo = Array.isArray(competition.geoBroadcasts)
+      ? competition.geoBroadcasts
+      : [];
+    const usEn = geo.find(
+      (g) =>
+        (g?.region === 'us' || g?.market?.type === 'Home') &&
+        g?.lang === 'en',
+    );
+    const usAny = geo.find(
+      (g) => g?.region === 'us' || g?.market?.type === 'Home',
+    );
+    const broadcastsArr = Array.isArray(competition.broadcasts)
+      ? competition.broadcasts
+      : [];
+    const fallbackName =
+      broadcastsArr[0]?.names?.[0] || broadcastsArr[0]?.name || null;
+    const tvChannel =
+      usEn?.media?.shortName ||
+      usAny?.media?.shortName ||
+      geo[0]?.media?.shortName ||
+      fallbackName ||
+      null;
+    if (tvChannel && match.tvChannel !== tvChannel) {
+      match.tvChannel = tvChannel;
+      updated += 1;
+    }
+ 
     // Only update score/winner for matches that are in progress or
     // completed. Skip pre-game so we don't blank scores or stamp a
     // winner before kickoff.
