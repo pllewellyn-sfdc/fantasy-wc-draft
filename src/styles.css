@@ -424,6 +424,7 @@ th {
   display: grid;
   /* kickoff | left team | score | right team */
   grid-template-columns: minmax(140px, auto) 1fr auto 1fr;
+  grid-template-areas: 'kickoff teamA score teamB';
   gap: 8px;
   align-items: center;
   padding: 6px 8px;
@@ -434,11 +435,24 @@ th {
 }
  
 .ro-kickoff {
+  grid-area: kickoff;
   font-size: 11px;
   color: var(--muted);
   text-transform: uppercase;
   letter-spacing: 0.04em;
   white-space: nowrap;
+}
+ 
+.ro-team-left {
+  grid-area: teamA;
+}
+ 
+.ro-score {
+  grid-area: score;
+}
+ 
+.ro-team-right {
+  grid-area: teamB;
 }
  
 .ro-team {
@@ -467,4 +481,102 @@ th {
 .ro-score.unplayed {
   color: var(--muted);
   font-weight: 400;
+}
+ 
+/* ---- Mobile (≤700px) ---------------------------------------------- */
+ 
+@media (max-width: 700px) {
+  .app-shell {
+    padding: 12px 8px 60px;
+  }
+ 
+  .app-header h1 {
+    font-size: 18px;
+  }
+ 
+  /* Single-column stack of group cards on phones. */
+  .group-grid,
+  .bracket {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+ 
+  .card {
+    padding: 12px;
+  }
+ 
+  /* Compress the rules editor on phone. */
+  .rules-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+ 
+  /* Standings columns kept on phone: # / Team / Owner / GD / Pts.
+     Hidden: P (4) / W (5) / D (6) / L (7) / GF (8) / GA (9). */
+  .standings th:nth-child(4),
+  .standings td:nth-child(4),
+  .standings th:nth-child(5),
+  .standings td:nth-child(5),
+  .standings th:nth-child(6),
+  .standings td:nth-child(6),
+  .standings th:nth-child(7),
+  .standings td:nth-child(7),
+  .standings th:nth-child(8),
+  .standings td:nth-child(8),
+  .standings th:nth-child(9),
+  .standings td:nth-child(9) {
+    display: none;
+  }
+ 
+  /* Leaderboard columns kept on phone: # / Player / Total.
+     Hidden: W (3) / D (4) / L (5) / CS (6) / GF (7). */
+  .leaderboard th:nth-child(3),
+  .leaderboard td:nth-child(3),
+  .leaderboard th:nth-child(4),
+  .leaderboard td:nth-child(4),
+  .leaderboard th:nth-child(5),
+  .leaderboard td:nth-child(5),
+  .leaderboard th:nth-child(6),
+  .leaderboard td:nth-child(6),
+  .leaderboard th:nth-child(7),
+  .leaderboard td:nth-child(7) {
+    display: none;
+  }
+ 
+  /* Tighter table cells. */
+  th,
+  td {
+    padding: 4px 6px;
+    font-size: 12px;
+  }
+ 
+  /* Participant badges shrink to colored initials only.
+     The full name was a luxury we can't afford on a 360px screen. */
+  .badge .badge-name {
+    display: none;
+  }
+  .badge {
+    padding: 2px 6px;
+  }
+ 
+  /* Match row: kickoff jumps to its own line on top, then the
+     three-column matchup row underneath. */
+  .match-row-ro {
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-areas:
+      'kickoff kickoff kickoff'
+      'teamA   score   teamB';
+    row-gap: 4px;
+    column-gap: 6px;
+    font-size: 12px;
+    padding: 6px;
+  }
+ 
+  .ro-team {
+    gap: 4px;
+    flex-wrap: nowrap;
+  }
+ 
+  .ro-score {
+    padding: 2px 8px;
+  }
 }
