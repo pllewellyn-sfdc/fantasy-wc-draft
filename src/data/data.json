@@ -408,10 +408,11 @@
       "round": "group",
       "teamA": "MEX",
       "teamB": "RSA",
-      "scoreA": null,
-      "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-11T19:00Z"
+      "scoreA": 2,
+      "scoreB": 0,
+      "winner": "MEX",
+      "kickoff": "2026-06-11T19:00Z",
+      "tvChannel": "FOX"
     },
     {
       "id": "g-A2",
@@ -421,7 +422,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-12T02:00Z"
+      "kickoff": "2026-06-12T02:00Z",
+      "tvChannel": "FS1"
     },
     {
       "id": "g-A3",
@@ -431,7 +433,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-19T01:00Z"
+      "kickoff": "2026-06-19T01:00Z",
+      "tvChannel": "FOX"
     },
     {
       "id": "g-A4",
@@ -441,7 +444,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-18T16:00Z"
+      "kickoff": "2026-06-18T16:00Z",
+      "tvChannel": "FOX"
     },
     {
       "id": "g-A5",
@@ -451,7 +455,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-25T01:00Z"
+      "kickoff": "2026-06-25T01:00Z",
+      "tvChannel": "FOX"
     },
     {
       "id": "g-A6",
@@ -461,7 +466,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-25T01:00Z"
+      "kickoff": "2026-06-25T01:00Z",
+      "tvChannel": "FS1"
     },
     {
       "id": "g-B1",
@@ -471,7 +477,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-12T19:00Z"
+      "kickoff": "2026-06-12T19:00Z",
+      "tvChannel": "FOX"
     },
     {
       "id": "g-B2",
@@ -481,7 +488,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-13T19:00Z"
+      "kickoff": "2026-06-13T19:00Z",
+      "tvChannel": "FOX"
     },
     {
       "id": "g-B3",
@@ -491,7 +499,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-18T22:00Z"
+      "kickoff": "2026-06-18T22:00Z",
+      "tvChannel": "FS1"
     },
     {
       "id": "g-B4",
@@ -501,7 +510,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-18T19:00Z"
+      "kickoff": "2026-06-18T19:00Z",
+      "tvChannel": "FOX"
     },
     {
       "id": "g-B5",
@@ -511,7 +521,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-24T19:00Z"
+      "kickoff": "2026-06-24T19:00Z",
+      "tvChannel": "FOX"
     },
     {
       "id": "g-B6",
@@ -521,7 +532,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-24T19:00Z"
+      "kickoff": "2026-06-24T19:00Z",
+      "tvChannel": "FS1"
     },
     {
       "id": "g-C1",
@@ -531,7 +543,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-13T22:00Z"
+      "kickoff": "2026-06-13T22:00Z",
+      "tvChannel": "FOX"
     },
     {
       "id": "g-C2",
@@ -541,7 +554,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-14T01:00Z"
+      "kickoff": "2026-06-14T01:00Z",
+      "tvChannel": "FOX"
     },
     {
       "id": "g-C3",
@@ -551,7 +565,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-20T00:30Z"
+      "kickoff": "2026-06-20T00:30Z",
+      "tvChannel": "FOX"
     },
     {
       "id": "g-C4",
@@ -561,7 +576,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-19T22:00Z"
+      "kickoff": "2026-06-19T22:00Z",
+      "tvChannel": "FOX"
     },
     {
       "id": "g-C5",
@@ -571,7 +587,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-24T22:00Z"
+      "kickoff": "2026-06-24T22:00Z",
+      "tvChannel": "FOX"
     },
     {
       "id": "g-C6",
@@ -581,7 +598,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-24T22:00Z"
+      "kickoff": "2026-06-24T22:00Z",
+      "tvChannel": "FS1"
     },
     {
       "id": "g-D1",
@@ -591,7 +609,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-13T01:00Z"
+      "kickoff": "2026-06-13T01:00Z",
+      "tvChannel": "FOX"
     },
     {
       "id": "g-D2",
@@ -601,7 +620,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-14T04:00Z"
+      "kickoff": "2026-06-14T04:00Z",
+      "tvChannel": "FS1"
     },
     {
       "id": "g-D3",
@@ -611,7 +631,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-19T19:00Z"
+      "kickoff": "2026-06-19T19:00Z",
+      "tvChannel": "FOX"
     },
     {
       "id": "g-D4",
@@ -621,7 +642,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-20T03:00Z"
+      "kickoff": "2026-06-20T03:00Z",
+      "tvChannel": "FS1"
     },
     {
       "id": "g-D5",
@@ -631,7 +653,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-26T02:00Z"
+      "kickoff": "2026-06-26T02:00Z",
+      "tvChannel": "FOX"
     },
     {
       "id": "g-D6",
@@ -641,7 +664,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-26T02:00Z"
+      "kickoff": "2026-06-26T02:00Z",
+      "tvChannel": "FS1"
     },
     {
       "id": "g-E1",
@@ -651,7 +675,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-14T17:00Z"
+      "kickoff": "2026-06-14T17:00Z",
+      "tvChannel": "FOX"
     },
     {
       "id": "g-E2",
@@ -661,7 +686,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-14T23:00Z"
+      "kickoff": "2026-06-14T23:00Z",
+      "tvChannel": "FS1"
     },
     {
       "id": "g-E3",
@@ -671,7 +697,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-20T20:00Z"
+      "kickoff": "2026-06-20T20:00Z",
+      "tvChannel": "FOX"
     },
     {
       "id": "g-E4",
@@ -681,7 +708,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-21T00:00Z"
+      "kickoff": "2026-06-21T00:00Z",
+      "tvChannel": "FS1"
     },
     {
       "id": "g-E5",
@@ -691,7 +719,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-25T20:00Z"
+      "kickoff": "2026-06-25T20:00Z",
+      "tvChannel": "FOX"
     },
     {
       "id": "g-E6",
@@ -701,7 +730,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-25T20:00Z"
+      "kickoff": "2026-06-25T20:00Z",
+      "tvChannel": "FS1"
     },
     {
       "id": "g-F1",
@@ -711,7 +741,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-14T20:00Z"
+      "kickoff": "2026-06-14T20:00Z",
+      "tvChannel": "FOX"
     },
     {
       "id": "g-F2",
@@ -721,7 +752,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-15T02:00Z"
+      "kickoff": "2026-06-15T02:00Z",
+      "tvChannel": "FS1"
     },
     {
       "id": "g-F3",
@@ -731,7 +763,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-20T17:00Z"
+      "kickoff": "2026-06-20T17:00Z",
+      "tvChannel": "FOX"
     },
     {
       "id": "g-F4",
@@ -741,7 +774,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-21T04:00Z"
+      "kickoff": "2026-06-21T04:00Z",
+      "tvChannel": "FS1"
     },
     {
       "id": "g-F5",
@@ -751,7 +785,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-25T23:00Z"
+      "kickoff": "2026-06-25T23:00Z",
+      "tvChannel": "FOX"
     },
     {
       "id": "g-F6",
@@ -761,7 +796,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-25T23:00Z"
+      "kickoff": "2026-06-25T23:00Z",
+      "tvChannel": "FS1"
     },
     {
       "id": "g-G1",
@@ -771,7 +807,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-15T19:00Z"
+      "kickoff": "2026-06-15T19:00Z",
+      "tvChannel": "FOX"
     },
     {
       "id": "g-G2",
@@ -781,7 +818,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-16T01:00Z"
+      "kickoff": "2026-06-16T01:00Z",
+      "tvChannel": "FS1"
     },
     {
       "id": "g-G3",
@@ -791,7 +829,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-21T19:00Z"
+      "kickoff": "2026-06-21T19:00Z",
+      "tvChannel": "FS1"
     },
     {
       "id": "g-G4",
@@ -801,7 +840,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-22T01:00Z"
+      "kickoff": "2026-06-22T01:00Z",
+      "tvChannel": "FS1"
     },
     {
       "id": "g-G5",
@@ -811,7 +851,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-27T03:00Z"
+      "kickoff": "2026-06-27T03:00Z",
+      "tvChannel": "FOX"
     },
     {
       "id": "g-G6",
@@ -821,7 +862,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-27T03:00Z"
+      "kickoff": "2026-06-27T03:00Z",
+      "tvChannel": "FS1"
     },
     {
       "id": "g-H1",
@@ -831,7 +873,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-15T16:00Z"
+      "kickoff": "2026-06-15T16:00Z",
+      "tvChannel": "FOX"
     },
     {
       "id": "g-H2",
@@ -841,7 +884,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-15T22:00Z"
+      "kickoff": "2026-06-15T22:00Z",
+      "tvChannel": "FS1"
     },
     {
       "id": "g-H3",
@@ -851,7 +895,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-21T16:00Z"
+      "kickoff": "2026-06-21T16:00Z",
+      "tvChannel": "FOX"
     },
     {
       "id": "g-H4",
@@ -861,7 +906,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-21T22:00Z"
+      "kickoff": "2026-06-21T22:00Z",
+      "tvChannel": "FS1"
     },
     {
       "id": "g-H5",
@@ -871,7 +917,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-27T00:00Z"
+      "kickoff": "2026-06-27T00:00Z",
+      "tvChannel": "FOX"
     },
     {
       "id": "g-H6",
@@ -881,7 +928,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-27T00:00Z"
+      "kickoff": "2026-06-27T00:00Z",
+      "tvChannel": "FS1"
     },
     {
       "id": "g-I1",
@@ -891,7 +939,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-16T19:00Z"
+      "kickoff": "2026-06-16T19:00Z",
+      "tvChannel": "FOX"
     },
     {
       "id": "g-I2",
@@ -901,7 +950,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-16T22:00Z"
+      "kickoff": "2026-06-16T22:00Z",
+      "tvChannel": "FOX"
     },
     {
       "id": "g-I3",
@@ -911,7 +961,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-22T21:00Z"
+      "kickoff": "2026-06-22T21:00Z",
+      "tvChannel": "FOX"
     },
     {
       "id": "g-I4",
@@ -921,7 +972,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-23T00:00Z"
+      "kickoff": "2026-06-23T00:00Z",
+      "tvChannel": "FOX"
     },
     {
       "id": "g-I5",
@@ -931,7 +983,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-26T19:00Z"
+      "kickoff": "2026-06-26T19:00Z",
+      "tvChannel": "FOX"
     },
     {
       "id": "g-I6",
@@ -941,7 +994,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-26T19:00Z"
+      "kickoff": "2026-06-26T19:00Z",
+      "tvChannel": "FS1"
     },
     {
       "id": "g-J1",
@@ -951,7 +1005,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-17T01:00Z"
+      "kickoff": "2026-06-17T01:00Z",
+      "tvChannel": "FOX"
     },
     {
       "id": "g-J2",
@@ -961,7 +1016,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-17T04:00Z"
+      "kickoff": "2026-06-17T04:00Z",
+      "tvChannel": "FS1"
     },
     {
       "id": "g-J3",
@@ -971,7 +1027,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-22T17:00Z"
+      "kickoff": "2026-06-22T17:00Z",
+      "tvChannel": "FOX"
     },
     {
       "id": "g-J4",
@@ -981,7 +1038,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-23T03:00Z"
+      "kickoff": "2026-06-23T03:00Z",
+      "tvChannel": "FS1"
     },
     {
       "id": "g-J5",
@@ -991,7 +1049,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-28T02:00Z"
+      "kickoff": "2026-06-28T02:00Z",
+      "tvChannel": "FOX"
     },
     {
       "id": "g-J6",
@@ -1001,7 +1060,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-28T02:00Z"
+      "kickoff": "2026-06-28T02:00Z",
+      "tvChannel": "FS1"
     },
     {
       "id": "g-K1",
@@ -1011,7 +1071,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-17T17:00Z"
+      "kickoff": "2026-06-17T17:00Z",
+      "tvChannel": "FOX"
     },
     {
       "id": "g-K2",
@@ -1021,7 +1082,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-18T02:00Z"
+      "kickoff": "2026-06-18T02:00Z",
+      "tvChannel": "FS1"
     },
     {
       "id": "g-K3",
@@ -1031,7 +1093,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-23T17:00Z"
+      "kickoff": "2026-06-23T17:00Z",
+      "tvChannel": "FOX"
     },
     {
       "id": "g-K4",
@@ -1041,7 +1104,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-24T02:00Z"
+      "kickoff": "2026-06-24T02:00Z",
+      "tvChannel": "FS1"
     },
     {
       "id": "g-K5",
@@ -1051,7 +1115,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-27T23:30Z"
+      "kickoff": "2026-06-27T23:30Z",
+      "tvChannel": "FOX"
     },
     {
       "id": "g-K6",
@@ -1061,7 +1126,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-27T23:30Z"
+      "kickoff": "2026-06-27T23:30Z",
+      "tvChannel": "FS1"
     },
     {
       "id": "g-L1",
@@ -1071,7 +1137,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-17T20:00Z"
+      "kickoff": "2026-06-17T20:00Z",
+      "tvChannel": "FOX"
     },
     {
       "id": "g-L2",
@@ -1081,7 +1148,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-17T23:00Z"
+      "kickoff": "2026-06-17T23:00Z",
+      "tvChannel": "FS1"
     },
     {
       "id": "g-L3",
@@ -1091,7 +1159,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-23T20:00Z"
+      "kickoff": "2026-06-23T20:00Z",
+      "tvChannel": "FOX"
     },
     {
       "id": "g-L4",
@@ -1101,7 +1170,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-23T23:00Z"
+      "kickoff": "2026-06-23T23:00Z",
+      "tvChannel": "FOX"
     },
     {
       "id": "g-L5",
@@ -1111,7 +1181,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-27T21:00Z"
+      "kickoff": "2026-06-27T21:00Z",
+      "tvChannel": "FOX"
     },
     {
       "id": "g-L6",
@@ -1121,7 +1192,8 @@
       "scoreA": null,
       "scoreB": null,
       "winner": null,
-      "kickoff": "2026-06-27T21:00Z"
+      "kickoff": "2026-06-27T21:00Z",
+      "tvChannel": "FS1"
     },
     {
       "id": "r32-1",
