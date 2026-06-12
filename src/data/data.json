@@ -419,9 +419,9 @@
       "round": "group",
       "teamA": "KOR",
       "teamB": "CZE",
-      "scoreA": null,
-      "scoreB": null,
-      "winner": null,
+      "scoreA": 2,
+      "scoreB": 1,
+      "winner": "KOR",
       "kickoff": "2026-06-12T02:00Z",
       "tvChannel": "FS1"
     },
