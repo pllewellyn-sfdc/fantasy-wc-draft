@@ -28,6 +28,11 @@ export interface Participant {
   name: string;
   color: string;            // hex, used for badges and accents
   draftedTeamIds: string[]; // ordered list of team ids this participant owns
+  // 3-letter display code used in the colored chip on every match
+  // row. Falls back to first letters of the name if absent. We use
+  // explicit codes to avoid collisions like Clem/Clitz both showing
+  // a "C" and Pete/Pat both showing a "P".
+  shortName?: string;
 }
  
 // A match. teamA / teamB are Team ids when known.
@@ -60,12 +65,19 @@ export interface Match {
   placeholderB?: string;
 }
  
+// League scoring: group-stage W/D/L plus additive advancement
+// bonuses for each knockout round a team reaches. R16 has no bonus
+// of its own — the next milestone after R32 is the QF.
 export interface ScoringRules {
-  win: number;         // points awarded per match win
-  draw: number;        // points per draw
-  loss: number;        // usually 0 or negative
-  cleanSheet: number;  // points if the team kept a clean sheet
-  goalBonus: number;   // points per goal scored
+  groupWin: number;       // group stage win
+  groupDraw: number;      // group stage draw
+  groupLoss: number;      // usually 0
+  reachR32: number;       // team appears in any R32 fixture
+  reachQF: number;        // team appears in any QF fixture
+  reachSF: number;        // team appears in any SF fixture
+  reachFinal: number;     // team appears in the final
+  champion: number;       // winner of the final
+  thirdPlaceWin: number;  // winner of the third-place playoff
 }
  
 export interface AppData {
@@ -86,17 +98,21 @@ export interface ParticipantScore {
   wins: number;
   draws: number;
   losses: number;
-  cleanSheets: number;
   goalsFor: number;
+  goalsAgainst: number;
+  goalDiff: number;
+  bonusPoints: number; // total advancement + champion + 3rd-place
   // Per-team contributions for the leaderboard drill-down.
   perTeam: Array<{
     teamId: string;
-    points: number;
+    points: number;          // total fantasy points earned by this team
+    groupPoints: number;     // group-stage W/D/L only
+    bonusPoints: number;     // advancement + champion + 3rd-place
     matchesPlayed: number;
     wins: number;
     draws: number;
     losses: number;
-    cleanSheets: number;
     goalsFor: number;
+    goalsAgainst: number;
   }>;
 }

@@ -2,10 +2,27 @@ import type { Participant } from '../types';
 
 // Tiny presentational component used everywhere a participant is
 // displayed next to a team. Keeping it isolated means the color +
-// avatar treatment stays consistent across the app.
+// short-code treatment stays consistent across the app.
+//
+// Identification logic: prefer the explicit `shortName` if one is
+// configured. This is how we disambiguate participants whose first
+// names share a letter (Clem vs Clitz, Pete vs Pat). Without
+// shortName we fall back to up to two-letter initials.
 interface Props {
   participant?: Participant;
   size?: 'sm' | 'md';
+}
+
+function shortCodeFor(p: Participant): string {
+  if (p.shortName && p.shortName.length > 0) {
+    return p.shortName.toUpperCase();
+  }
+  return p.name
+    .split(/\s+/)
+    .map((w) => w[0])
+    .slice(0, 2)
+    .join('')
+    .toUpperCase();
 }
 
 export function ParticipantBadge({ participant, size = 'sm' }: Props) {
@@ -16,12 +33,7 @@ export function ParticipantBadge({ participant, size = 'sm' }: Props) {
       </span>
     );
   }
-  const initials = participant.name
-    .split(/\s+/)
-    .map((w) => w[0])
-    .slice(0, 2)
-    .join('')
-    .toUpperCase();
+  const code = shortCodeFor(participant);
 
   return (
     <span
@@ -32,7 +44,7 @@ export function ParticipantBadge({ participant, size = 'sm' }: Props) {
       }}
       title={participant.name}
     >
-      <span className="badge-initials">{initials}</span>
+      <span className="badge-initials">{code}</span>
       <span className="badge-name">{participant.name}</span>
     </span>
   );

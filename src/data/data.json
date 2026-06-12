@@ -293,6 +293,7 @@
     {
       "id": "kenny",
       "name": "Kenny",
+      "shortName": "KEN",
       "color": "#e63946",
       "draftedTeamIds": [
         "ESP",
@@ -306,6 +307,7 @@
     {
       "id": "pete",
       "name": "Pete",
+      "shortName": "PET",
       "color": "#1d3557",
       "draftedTeamIds": [
         "ENG",
@@ -319,6 +321,7 @@
     {
       "id": "talty",
       "name": "Talty",
+      "shortName": "TAL",
       "color": "#2a9d8f",
       "draftedTeamIds": [
         "FRA",
@@ -332,6 +335,7 @@
     {
       "id": "clem",
       "name": "Clem",
+      "shortName": "CLM",
       "color": "#f4a261",
       "draftedTeamIds": [
         "NED",
@@ -345,6 +349,7 @@
     {
       "id": "hidalgo",
       "name": "Hidalgo",
+      "shortName": "HID",
       "color": "#9b5de5",
       "draftedTeamIds": [
         "GER",
@@ -358,6 +363,7 @@
     {
       "id": "scott",
       "name": "Scott",
+      "shortName": "SCO",
       "color": "#00b4d8",
       "draftedTeamIds": [
         "ARG",
@@ -371,6 +377,7 @@
     {
       "id": "clitz",
       "name": "Clitz",
+      "shortName": "CLZ",
       "color": "#f15bb5",
       "draftedTeamIds": [
         "BRA",
@@ -384,6 +391,7 @@
     {
       "id": "pat",
       "name": "Pat",
+      "shortName": "PAT",
       "color": "#264653",
       "draftedTeamIds": [
         "POR",
@@ -396,11 +404,15 @@
     }
   ],
   "scoringRules": {
-    "win": 3,
-    "draw": 1,
-    "loss": 0,
-    "cleanSheet": 1,
-    "goalBonus": 1
+    "groupWin": 3,
+    "groupDraw": 1,
+    "groupLoss": 0,
+    "reachR32": 3,
+    "reachQF": 4,
+    "reachSF": 5,
+    "reachFinal": 6,
+    "champion": 8,
+    "thirdPlaceWin": 3
   },
   "matches": [
     {
@@ -408,22 +420,18 @@
       "round": "group",
       "teamA": "MEX",
       "teamB": "RSA",
-      "scoreA": 2,
-      "scoreB": 0,
-      "winner": "MEX",
-      "kickoff": "2026-06-11T19:00Z",
-      "tvChannel": "FOX"
+      "scoreA": null,
+      "scoreB": null,
+      "winner": null
     },
     {
       "id": "g-A2",
       "round": "group",
       "teamA": "KOR",
       "teamB": "CZE",
-      "scoreA": 2,
-      "scoreB": 1,
-      "winner": "KOR",
-      "kickoff": "2026-06-12T02:00Z",
-      "tvChannel": "FS1"
+      "scoreA": null,
+      "scoreB": null,
+      "winner": null
     },
     {
       "id": "g-A3",
@@ -432,9 +440,7 @@
       "teamB": "KOR",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-19T01:00Z",
-      "tvChannel": "FOX"
+      "winner": null
     },
     {
       "id": "g-A4",
@@ -443,9 +449,7 @@
       "teamB": "RSA",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-18T16:00Z",
-      "tvChannel": "FOX"
+      "winner": null
     },
     {
       "id": "g-A5",
@@ -454,9 +458,7 @@
       "teamB": "MEX",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-25T01:00Z",
-      "tvChannel": "FOX"
+      "winner": null
     },
     {
       "id": "g-A6",
@@ -465,9 +467,7 @@
       "teamB": "KOR",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-25T01:00Z",
-      "tvChannel": "FS1"
+      "winner": null
     },
     {
       "id": "g-B1",
@@ -476,9 +476,7 @@
       "teamB": "BIH",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-12T19:00Z",
-      "tvChannel": "FOX"
+      "winner": null
     },
     {
       "id": "g-B2",
@@ -487,9 +485,7 @@
       "teamB": "SUI",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-13T19:00Z",
-      "tvChannel": "FOX"
+      "winner": null
     },
     {
       "id": "g-B3",
@@ -498,9 +494,7 @@
       "teamB": "QAT",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-18T22:00Z",
-      "tvChannel": "FS1"
+      "winner": null
     },
     {
       "id": "g-B4",
@@ -509,9 +503,7 @@
       "teamB": "BIH",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-18T19:00Z",
-      "tvChannel": "FOX"
+      "winner": null
     },
     {
       "id": "g-B5",
@@ -520,9 +512,7 @@
       "teamB": "CAN",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-24T19:00Z",
-      "tvChannel": "FOX"
+      "winner": null
     },
     {
       "id": "g-B6",
@@ -531,9 +521,7 @@
       "teamB": "QAT",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-24T19:00Z",
-      "tvChannel": "FS1"
+      "winner": null
     },
     {
       "id": "g-C1",
@@ -542,9 +530,7 @@
       "teamB": "MAR",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-13T22:00Z",
-      "tvChannel": "FOX"
+      "winner": null
     },
     {
       "id": "g-C2",
@@ -553,9 +539,7 @@
       "teamB": "SCO",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-14T01:00Z",
-      "tvChannel": "FOX"
+      "winner": null
     },
     {
       "id": "g-C3",
@@ -564,9 +548,7 @@
       "teamB": "HAI",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-20T00:30Z",
-      "tvChannel": "FOX"
+      "winner": null
     },
     {
       "id": "g-C4",
@@ -575,9 +557,7 @@
       "teamB": "MAR",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-19T22:00Z",
-      "tvChannel": "FOX"
+      "winner": null
     },
     {
       "id": "g-C5",
@@ -586,9 +566,7 @@
       "teamB": "BRA",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-24T22:00Z",
-      "tvChannel": "FOX"
+      "winner": null
     },
     {
       "id": "g-C6",
@@ -597,9 +575,7 @@
       "teamB": "HAI",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-24T22:00Z",
-      "tvChannel": "FS1"
+      "winner": null
     },
     {
       "id": "g-D1",
@@ -608,9 +584,7 @@
       "teamB": "PAR",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-13T01:00Z",
-      "tvChannel": "FOX"
+      "winner": null
     },
     {
       "id": "g-D2",
@@ -619,9 +593,7 @@
       "teamB": "TUR",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-14T04:00Z",
-      "tvChannel": "FS1"
+      "winner": null
     },
     {
       "id": "g-D3",
@@ -630,9 +602,7 @@
       "teamB": "AUS",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-19T19:00Z",
-      "tvChannel": "FOX"
+      "winner": null
     },
     {
       "id": "g-D4",
@@ -641,9 +611,7 @@
       "teamB": "PAR",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-20T03:00Z",
-      "tvChannel": "FS1"
+      "winner": null
     },
     {
       "id": "g-D5",
@@ -652,9 +620,7 @@
       "teamB": "USA",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-26T02:00Z",
-      "tvChannel": "FOX"
+      "winner": null
     },
     {
       "id": "g-D6",
@@ -663,9 +629,7 @@
       "teamB": "AUS",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-26T02:00Z",
-      "tvChannel": "FS1"
+      "winner": null
     },
     {
       "id": "g-E1",
@@ -674,9 +638,7 @@
       "teamB": "CUW",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-14T17:00Z",
-      "tvChannel": "FOX"
+      "winner": null
     },
     {
       "id": "g-E2",
@@ -685,9 +647,7 @@
       "teamB": "ECU",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-14T23:00Z",
-      "tvChannel": "FS1"
+      "winner": null
     },
     {
       "id": "g-E3",
@@ -696,9 +656,7 @@
       "teamB": "CIV",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-20T20:00Z",
-      "tvChannel": "FOX"
+      "winner": null
     },
     {
       "id": "g-E4",
@@ -707,9 +665,7 @@
       "teamB": "CUW",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-21T00:00Z",
-      "tvChannel": "FS1"
+      "winner": null
     },
     {
       "id": "g-E5",
@@ -718,9 +674,7 @@
       "teamB": "GER",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-25T20:00Z",
-      "tvChannel": "FOX"
+      "winner": null
     },
     {
       "id": "g-E6",
@@ -729,9 +683,7 @@
       "teamB": "CIV",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-25T20:00Z",
-      "tvChannel": "FS1"
+      "winner": null
     },
     {
       "id": "g-F1",
@@ -740,9 +692,7 @@
       "teamB": "JPN",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-14T20:00Z",
-      "tvChannel": "FOX"
+      "winner": null
     },
     {
       "id": "g-F2",
@@ -751,9 +701,7 @@
       "teamB": "TUN",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-15T02:00Z",
-      "tvChannel": "FS1"
+      "winner": null
     },
     {
       "id": "g-F3",
@@ -762,9 +710,7 @@
       "teamB": "SWE",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-20T17:00Z",
-      "tvChannel": "FOX"
+      "winner": null
     },
     {
       "id": "g-F4",
@@ -773,9 +719,7 @@
       "teamB": "JPN",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-21T04:00Z",
-      "tvChannel": "FS1"
+      "winner": null
     },
     {
       "id": "g-F5",
@@ -784,9 +728,7 @@
       "teamB": "NED",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-25T23:00Z",
-      "tvChannel": "FOX"
+      "winner": null
     },
     {
       "id": "g-F6",
@@ -795,9 +737,7 @@
       "teamB": "SWE",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-25T23:00Z",
-      "tvChannel": "FS1"
+      "winner": null
     },
     {
       "id": "g-G1",
@@ -806,9 +746,7 @@
       "teamB": "EGY",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-15T19:00Z",
-      "tvChannel": "FOX"
+      "winner": null
     },
     {
       "id": "g-G2",
@@ -817,9 +755,7 @@
       "teamB": "NZL",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-16T01:00Z",
-      "tvChannel": "FS1"
+      "winner": null
     },
     {
       "id": "g-G3",
@@ -828,9 +764,7 @@
       "teamB": "IRN",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-21T19:00Z",
-      "tvChannel": "FS1"
+      "winner": null
     },
     {
       "id": "g-G4",
@@ -839,9 +773,7 @@
       "teamB": "EGY",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-22T01:00Z",
-      "tvChannel": "FS1"
+      "winner": null
     },
     {
       "id": "g-G5",
@@ -850,9 +782,7 @@
       "teamB": "BEL",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-27T03:00Z",
-      "tvChannel": "FOX"
+      "winner": null
     },
     {
       "id": "g-G6",
@@ -861,9 +791,7 @@
       "teamB": "IRN",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-27T03:00Z",
-      "tvChannel": "FS1"
+      "winner": null
     },
     {
       "id": "g-H1",
@@ -872,9 +800,7 @@
       "teamB": "CPV",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-15T16:00Z",
-      "tvChannel": "FOX"
+      "winner": null
     },
     {
       "id": "g-H2",
@@ -883,9 +809,7 @@
       "teamB": "URU",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-15T22:00Z",
-      "tvChannel": "FS1"
+      "winner": null
     },
     {
       "id": "g-H3",
@@ -894,9 +818,7 @@
       "teamB": "KSA",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-21T16:00Z",
-      "tvChannel": "FOX"
+      "winner": null
     },
     {
       "id": "g-H4",
@@ -905,9 +827,7 @@
       "teamB": "CPV",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-21T22:00Z",
-      "tvChannel": "FS1"
+      "winner": null
     },
     {
       "id": "g-H5",
@@ -916,9 +836,7 @@
       "teamB": "ESP",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-27T00:00Z",
-      "tvChannel": "FOX"
+      "winner": null
     },
     {
       "id": "g-H6",
@@ -927,9 +845,7 @@
       "teamB": "KSA",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-27T00:00Z",
-      "tvChannel": "FS1"
+      "winner": null
     },
     {
       "id": "g-I1",
@@ -938,9 +854,7 @@
       "teamB": "SEN",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-16T19:00Z",
-      "tvChannel": "FOX"
+      "winner": null
     },
     {
       "id": "g-I2",
@@ -949,9 +863,7 @@
       "teamB": "NOR",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-16T22:00Z",
-      "tvChannel": "FOX"
+      "winner": null
     },
     {
       "id": "g-I3",
@@ -960,9 +872,7 @@
       "teamB": "IRQ",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-22T21:00Z",
-      "tvChannel": "FOX"
+      "winner": null
     },
     {
       "id": "g-I4",
@@ -971,9 +881,7 @@
       "teamB": "SEN",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-23T00:00Z",
-      "tvChannel": "FOX"
+      "winner": null
     },
     {
       "id": "g-I5",
@@ -982,9 +890,7 @@
       "teamB": "FRA",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-26T19:00Z",
-      "tvChannel": "FOX"
+      "winner": null
     },
     {
       "id": "g-I6",
@@ -993,9 +899,7 @@
       "teamB": "IRQ",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-26T19:00Z",
-      "tvChannel": "FS1"
+      "winner": null
     },
     {
       "id": "g-J1",
@@ -1004,9 +908,7 @@
       "teamB": "ALG",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-17T01:00Z",
-      "tvChannel": "FOX"
+      "winner": null
     },
     {
       "id": "g-J2",
@@ -1015,9 +917,7 @@
       "teamB": "JOR",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-17T04:00Z",
-      "tvChannel": "FS1"
+      "winner": null
     },
     {
       "id": "g-J3",
@@ -1026,9 +926,7 @@
       "teamB": "AUT",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-22T17:00Z",
-      "tvChannel": "FOX"
+      "winner": null
     },
     {
       "id": "g-J4",
@@ -1037,9 +935,7 @@
       "teamB": "ALG",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-23T03:00Z",
-      "tvChannel": "FS1"
+      "winner": null
     },
     {
       "id": "g-J5",
@@ -1048,9 +944,7 @@
       "teamB": "ARG",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-28T02:00Z",
-      "tvChannel": "FOX"
+      "winner": null
     },
     {
       "id": "g-J6",
@@ -1059,9 +953,7 @@
       "teamB": "AUT",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-28T02:00Z",
-      "tvChannel": "FS1"
+      "winner": null
     },
     {
       "id": "g-K1",
@@ -1070,9 +962,7 @@
       "teamB": "COD",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-17T17:00Z",
-      "tvChannel": "FOX"
+      "winner": null
     },
     {
       "id": "g-K2",
@@ -1081,9 +971,7 @@
       "teamB": "COL",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-18T02:00Z",
-      "tvChannel": "FS1"
+      "winner": null
     },
     {
       "id": "g-K3",
@@ -1092,9 +980,7 @@
       "teamB": "UZB",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-23T17:00Z",
-      "tvChannel": "FOX"
+      "winner": null
     },
     {
       "id": "g-K4",
@@ -1103,9 +989,7 @@
       "teamB": "COD",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-24T02:00Z",
-      "tvChannel": "FS1"
+      "winner": null
     },
     {
       "id": "g-K5",
@@ -1114,9 +998,7 @@
       "teamB": "POR",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-27T23:30Z",
-      "tvChannel": "FOX"
+      "winner": null
     },
     {
       "id": "g-K6",
@@ -1125,9 +1007,7 @@
       "teamB": "UZB",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-27T23:30Z",
-      "tvChannel": "FS1"
+      "winner": null
     },
     {
       "id": "g-L1",
@@ -1136,9 +1016,7 @@
       "teamB": "CRO",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-17T20:00Z",
-      "tvChannel": "FOX"
+      "winner": null
     },
     {
       "id": "g-L2",
@@ -1147,9 +1025,7 @@
       "teamB": "PAN",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-17T23:00Z",
-      "tvChannel": "FS1"
+      "winner": null
     },
     {
       "id": "g-L3",
@@ -1158,9 +1034,7 @@
       "teamB": "GHA",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-23T20:00Z",
-      "tvChannel": "FOX"
+      "winner": null
     },
     {
       "id": "g-L4",
@@ -1169,9 +1043,7 @@
       "teamB": "CRO",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-23T23:00Z",
-      "tvChannel": "FOX"
+      "winner": null
     },
     {
       "id": "g-L5",
@@ -1180,9 +1052,7 @@
       "teamB": "ENG",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-27T21:00Z",
-      "tvChannel": "FOX"
+      "winner": null
     },
     {
       "id": "g-L6",
@@ -1191,9 +1061,7 @@
       "teamB": "GHA",
       "scoreA": null,
       "scoreB": null,
-      "winner": null,
-      "kickoff": "2026-06-27T21:00Z",
-      "tvChannel": "FS1"
+      "winner": null
     },
     {
       "id": "r32-1",
