@@ -50,6 +50,10 @@ export interface Match {
   // Broadcast network short-name, e.g. "FOX" or "Telemundo". US
   // English broadcast preferred; null if ESPN didn't list one.
   tvChannel?: string | null;
+  // ESPN status: "pre" (scheduled), "in" (in progress), "post"
+  // (finished). Used by the Today/On-now spotlight to show the
+  // live indicator.
+  state?: 'pre' | 'in' | 'post' | null;
   // Optional human label used while a knockout slot is unfilled,
   // e.g. "Winner A" or "Runner-up B" or "W49".
   placeholderA?: string;
@@ -69,6 +73,10 @@ export interface AppData {
   participants: Participant[];
   matches: Match[];
   scoringRules: ScoringRules;
+  // ISO 8601 UTC timestamp of the last time the ESPN updater
+  // committed real changes. Optional so older data.json files stay
+  // valid; the App falls back to "just now" when missing.
+  lastUpdated?: string;
 }
  
 // Per-participant scoring breakdown returned by the scoring engine.

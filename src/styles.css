@@ -411,6 +411,46 @@ th {
   margin-bottom: 24px;
 }
  
+/* ---- Spotlight (Today) pills -------------------------------------- */
+ 
+.spotlight-card {
+  margin-bottom: 16px;
+}
+ 
+.pill {
+  display: inline-block;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+ 
+.pill-live {
+  background: #d62828;
+  color: white;
+  /* Subtle pulse so it reads as "happening now". */
+  animation: live-pulse 1.6s ease-in-out infinite;
+}
+ 
+.pill-final {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+ 
+.pill-next {
+  background: #fff;
+  color: var(--muted);
+  border: 1px solid var(--border);
+}
+ 
+@keyframes live-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+ 
 .match-list-readonly {
   list-style: none;
   padding: 0;
@@ -530,8 +570,10 @@ th {
     grid-template-columns: repeat(2, 1fr);
   }
  
-  /* Standings columns kept on phone: # / Team / Owner / GD / Pts.
-     Hidden: P (4) / W (5) / D (6) / L (7) / GF (8) / GA (9). */
+  /* Standings columns kept on phone: # / Team / Owner / Pts / Fpts.
+     Hidden: P (4) / W (5) / D (6) / L (7) / GF (8) / GA (9) / GD (10).
+     We keep football Pts and Fantasy Pts side by side so each owner
+     can see at a glance how their team is doing in both systems. */
   .standings th:nth-child(4),
   .standings td:nth-child(4),
   .standings th:nth-child(5),
@@ -543,7 +585,9 @@ th {
   .standings th:nth-child(8),
   .standings td:nth-child(8),
   .standings th:nth-child(9),
-  .standings td:nth-child(9) {
+  .standings td:nth-child(9),
+  .standings th:nth-child(10),
+  .standings td:nth-child(10) {
     display: none;
   }
  
