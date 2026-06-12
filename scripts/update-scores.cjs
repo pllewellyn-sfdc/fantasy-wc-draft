@@ -3,36 +3,38 @@
 // from a GitHub Actions cron job, but also runnable locally with
 // `node scripts/update-scores.cjs`.
 //
+// Why we iterate day-by-day:
+// ESPN's scoreboard endpoint accepts a date filter, but in practice
+// large date ranges return only some events or none at all,
+// depending on the league. A per-day loop over the tournament
+// window is bulletproof and the extra ~40 small requests per cron
+// tick are fine on a public repo.
+//
 // Defensive design: this script NEVER throws on a network error, an
-// unrecognised team, or a date with no games. It always exits 0 so a
-// transient ESPN hiccup doesn't break the deploy. If nothing
-// changed, data.json is untouched and the workflow's `git diff`
-// guard skips the commit.
+// unrecognised team, or a date with no games. It always exits 0 so
+// a transient ESPN hiccup doesn't break the deploy.
  
 const fs = require('fs');
 const path = require('path');
 const https = require('https');
  
-// ESPN's free FIFA World Cup scoreboard. No API key, no auth.
-// `dates=YYYYMMDD-YYYYMMDD` requests a date range; we use the full
-// 2026 tournament window so a single call returns everything.
-const ESPN_URL =
-  'https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=20260601-20260801';
+// 2026 World Cup window (Wikipedia: Jun 11 group stage opener →
+// Jul 19 final). We iterate inclusive of both ends.
+const TOURNAMENT_START = '2026-06-11';
+const TOURNAMENT_END = '2026-07-19';
  
-// Map ESPN team abbreviations to our internal IDs. Most match the
-// 3-letter FIFA codes already, but a few federations use different
-// abbreviations on ESPN.
+const ESPN_BASE =
+  'https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard';
+ 
+// Map ESPN team abbreviations to our internal IDs.
 const ESPN_TO_OURS = {
   ALG: 'ALG', ARG: 'ARG', AUS: 'AUS', AUT: 'AUT',
   BEL: 'BEL', BIH: 'BIH', BRA: 'BRA',
   CAN: 'CAN', CIV: 'CIV', COD: 'COD', COL: 'COL',
   CPV: 'CPV', CRO: 'CRO', CUW: 'CUW', CZE: 'CZE',
-  // ESPN sometimes uses CRC for Czech Republic in older feeds; the
-  // 2026 feed uses CZE. We map both to be safe.
   ECU: 'ECU', EGY: 'EGY', ENG: 'ENG', ESP: 'ESP',
   FRA: 'FRA',
   GER: 'GER', GHA: 'GHA',
-  // Haiti is often "HAI" on ESPN, occasionally "HTI".
   HAI: 'HAI', HTI: 'HAI',
   IRN: 'IRN', IRQ: 'IRQ',
   JPN: 'JPN', JOR: 'JOR',
@@ -45,8 +47,7 @@ const ESPN_TO_OURS = {
   SCO: 'SCO', SEN: 'SEN', SUI: 'SUI', SWE: 'SWE',
   TUN: 'TUN', TUR: 'TUR',
   URU: 'URU', USA: 'USA', UZB: 'UZB',
-  // Defensive aliases:
-  DRC: 'COD', // Democratic Republic of Congo, alt code
+  DRC: 'COD',
 };
  
 function fetchJson(url) {
@@ -55,7 +56,6 @@ function fetchJson(url) {
       url,
       {
         headers: {
-          // ESPN sometimes 403s default Node user-agents.
           'User-Agent':
             'Mozilla/5.0 (compatible; FantasyWCBot/1.0; +https://github.com/)',
           Accept: 'application/json',
@@ -85,6 +85,33 @@ function fetchJson(url) {
   });
 }
  
+// Yield each YYYYMMDD string between start and end inclusive.
+function* eachDay(startIso, endIso) {
+  const start = new Date(startIso + 'T00:00:00Z');
+  const end = new Date(endIso + 'T00:00:00Z');
+  for (
+    let d = new Date(start);
+    d <= end;
+    d = new Date(d.getTime() + 24 * 60 * 60 * 1000)
+  ) {
+    const y = d.getUTCFullYear();
+    const m = String(d.getUTCMonth() + 1).padStart(2, '0');
+    const day = String(d.getUTCDate()).padStart(2, '0');
+    yield '' + y + m + day;
+  }
+}
+ 
+async function fetchEventsForDay(yyyymmdd) {
+  const url = ESPN_BASE + '?dates=' + yyyymmdd;
+  try {
+    const json = await fetchJson(url);
+    return Array.isArray(json?.events) ? json.events : [];
+  } catch (err) {
+    console.warn('  [' + yyyymmdd + '] fetch failed: ' + err.message);
+    return [];
+  }
+}
+ 
 function safeRun() {
   return main().catch((err) => {
     console.error('update-scores: bailing out without changes:', err.message);
@@ -96,159 +123,166 @@ async function main() {
   const dataPath = path.join(__dirname, '..', 'src', 'data', 'data.json');
   const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
  
-  let espn;
-  try {
-    espn = await fetchJson(ESPN_URL);
-  } catch (err) {
-    console.warn('Could not reach ESPN:', err.message);
-    return;
-  }
- 
-  const events = Array.isArray(espn?.events) ? espn.events : [];
-  console.log(`ESPN returned ${events.length} events`);
- 
+  let totalEvents = 0;
   let updated = 0;
   const unknownTeams = new Set();
  
-  for (const ev of events) {
-    const competition = ev.competitions && ev.competitions[0];
-    if (!competition) continue;
+  console.log('Polling ESPN day-by-day from', TOURNAMENT_START, 'to', TOURNAMENT_END);
  
-    const state = competition.status?.type?.state;
-    const completed = competition.status?.type?.completed === true;
+  for (const ymd of eachDay(TOURNAMENT_START, TOURNAMENT_END)) {
+    const events = await fetchEventsForDay(ymd);
+    if (events.length === 0) continue;
+    totalEvents += events.length;
+    console.log('  [' + ymd + '] ' + events.length + ' event(s)');
  
-    const competitors = competition.competitors || [];
-    if (competitors.length !== 2) continue;
+    for (const ev of events) {
+      const competition = ev.competitions && ev.competitions[0];
+      if (!competition) continue;
  
-    const home = competitors.find((c) => c.homeAway === 'home') || competitors[0];
-    const away = competitors.find((c) => c.homeAway === 'away') || competitors[1];
+      const state = competition.status?.type?.state;
+      const completed = competition.status?.type?.completed === true;
  
-    const homeAbbr = home?.team?.abbreviation;
-    const awayAbbr = away?.team?.abbreviation;
-    const homeId = ESPN_TO_OURS[homeAbbr];
-    const awayId = ESPN_TO_OURS[awayAbbr];
+      const competitors = competition.competitors || [];
+      if (competitors.length !== 2) continue;
  
-    if (!homeId) unknownTeams.add(homeAbbr);
-    if (!awayId) unknownTeams.add(awayAbbr);
-    if (!homeId || !awayId) continue;
+      const home =
+        competitors.find((c) => c.homeAway === 'home') || competitors[0];
+      const away =
+        competitors.find((c) => c.homeAway === 'away') || competitors[1];
  
-    // Find a group-stage match between these two teams in our data.
-    // We don't yet auto-update knockout matches because their teamA/
-    // teamB slots start empty.
-    const match = data.matches.find(
-      (m) =>
-        m.round === 'group' &&
-        ((m.teamA === homeId && m.teamB === awayId) ||
-          (m.teamA === awayId && m.teamB === homeId)),
-    );
-    if (!match) continue;
+      const homeAbbr = home?.team?.abbreviation;
+      const awayAbbr = away?.team?.abbreviation;
+      const homeId = ESPN_TO_OURS[homeAbbr];
+      const awayId = ESPN_TO_OURS[awayAbbr];
  
-    // Always update kickoff. ESPN returns the scheduled date as an
-    // ISO 8601 string on every event, even for unplayed matches.
-    const kickoff = competition.date || ev.date;
-    if (kickoff && match.kickoff !== kickoff) {
-      match.kickoff = kickoff;
-      updated += 1;
-    }
+      if (!homeId) unknownTeams.add(homeAbbr);
+      if (!awayId) unknownTeams.add(awayAbbr);
+      if (!homeId || !awayId) continue;
  
-    // Always update state ("pre" / "in" / "post") so the UI can
-    // show a live indicator without inferring from scores.
-    if (state && match.state !== state) {
-      match.state = state;
-      updated += 1;
-    }
- 
-    // Always update TV channel. ESPN's geoBroadcasts is an array of
-    // per-region broadcasters. Prefer a US English entry; fall back
-    // to the first one available; finally try the lighter
-    // `broadcasts` field.
-    const geo = Array.isArray(competition.geoBroadcasts)
-      ? competition.geoBroadcasts
-      : [];
-    const usEn = geo.find(
-      (g) =>
-        (g?.region === 'us' || g?.market?.type === 'Home') &&
-        g?.lang === 'en',
-    );
-    const usAny = geo.find(
-      (g) => g?.region === 'us' || g?.market?.type === 'Home',
-    );
-    const broadcastsArr = Array.isArray(competition.broadcasts)
-      ? competition.broadcasts
-      : [];
-    const fallbackName =
-      broadcastsArr[0]?.names?.[0] || broadcastsArr[0]?.name || null;
-    const tvChannel =
-      usEn?.media?.shortName ||
-      usAny?.media?.shortName ||
-      geo[0]?.media?.shortName ||
-      fallbackName ||
-      null;
-    if (tvChannel && match.tvChannel !== tvChannel) {
-      match.tvChannel = tvChannel;
-      updated += 1;
-    }
- 
-    // Only update score/winner for matches that are in progress or
-    // completed. Skip pre-game so we don't blank scores or stamp a
-    // winner before kickoff.
-    if (state !== 'in' && !completed) continue;
- 
-    const homeScore = parseInt(home.score, 10);
-    const awayScore = parseInt(away.score, 10);
-    if (Number.isNaN(homeScore) || Number.isNaN(awayScore)) continue;
- 
-    let newScoreA;
-    let newScoreB;
-    if (match.teamA === homeId) {
-      newScoreA = homeScore;
-      newScoreB = awayScore;
-    } else {
-      newScoreA = awayScore;
-      newScoreB = homeScore;
-    }
- 
-    let winner = null;
-    if (completed) {
-      if (newScoreA > newScoreB) winner = match.teamA;
-      else if (newScoreB > newScoreA) winner = match.teamB;
-      else winner = 'draw';
-    }
- 
-    if (
-      match.scoreA !== newScoreA ||
-      match.scoreB !== newScoreB ||
-      match.winner !== winner
-    ) {
-      match.scoreA = newScoreA;
-      match.scoreB = newScoreB;
-      match.winner = winner;
-      updated += 1;
-      console.log(
-        `Updated ${match.id}: ${homeAbbr} ${homeScore}-${awayScore} ${awayAbbr} (${
-          completed ? 'final' : 'in progress'
-        })`,
+      // Find a matching match in our data. Group stage first; if
+      // not a group fixture (e.g. a knockout), match by any teamA/B
+      // pairing in the same round.
+      const groupMatch = data.matches.find(
+        (m) =>
+          m.round === 'group' &&
+          ((m.teamA === homeId && m.teamB === awayId) ||
+            (m.teamA === awayId && m.teamB === homeId)),
       );
+      const match = groupMatch;
+      if (!match) {
+        console.log(
+          '    no group fixture for ' + homeAbbr + ' vs ' + awayAbbr,
+        );
+        continue;
+      }
+ 
+      // Always update kickoff.
+      const kickoff = competition.date || ev.date;
+      if (kickoff && match.kickoff !== kickoff) {
+        match.kickoff = kickoff;
+        updated += 1;
+      }
+ 
+      // Always update state ("pre" / "in" / "post").
+      if (state && match.state !== state) {
+        match.state = state;
+        updated += 1;
+      }
+ 
+      // TV channel (US English preferred).
+      const geo = Array.isArray(competition.geoBroadcasts)
+        ? competition.geoBroadcasts
+        : [];
+      const usEn = geo.find(
+        (g) =>
+          (g?.region === 'us' || g?.market?.type === 'Home') &&
+          g?.lang === 'en',
+      );
+      const usAny = geo.find(
+        (g) => g?.region === 'us' || g?.market?.type === 'Home',
+      );
+      const broadcastsArr = Array.isArray(competition.broadcasts)
+        ? competition.broadcasts
+        : [];
+      const fallbackName =
+        broadcastsArr[0]?.names?.[0] || broadcastsArr[0]?.name || null;
+      const tvChannel =
+        usEn?.media?.shortName ||
+        usAny?.media?.shortName ||
+        geo[0]?.media?.shortName ||
+        fallbackName ||
+        null;
+      if (tvChannel && match.tvChannel !== tvChannel) {
+        match.tvChannel = tvChannel;
+        updated += 1;
+      }
+ 
+      // Score / winner only when in progress or completed.
+      if (state !== 'in' && !completed) continue;
+ 
+      const homeScore = parseInt(home.score, 10);
+      const awayScore = parseInt(away.score, 10);
+      if (Number.isNaN(homeScore) || Number.isNaN(awayScore)) continue;
+ 
+      let newScoreA;
+      let newScoreB;
+      if (match.teamA === homeId) {
+        newScoreA = homeScore;
+        newScoreB = awayScore;
+      } else {
+        newScoreA = awayScore;
+        newScoreB = homeScore;
+      }
+ 
+      let winner = null;
+      if (completed) {
+        if (newScoreA > newScoreB) winner = match.teamA;
+        else if (newScoreB > newScoreA) winner = match.teamB;
+        else winner = 'draw';
+      }
+ 
+      if (
+        match.scoreA !== newScoreA ||
+        match.scoreB !== newScoreB ||
+        match.winner !== winner
+      ) {
+        match.scoreA = newScoreA;
+        match.scoreB = newScoreB;
+        match.winner = winner;
+        updated += 1;
+        console.log(
+          '    Updated ' +
+            match.id +
+            ': ' +
+            homeAbbr +
+            ' ' +
+            homeScore +
+            '-' +
+            awayScore +
+            ' ' +
+            awayAbbr +
+            ' (' +
+            (completed ? 'final' : 'in progress') +
+            ')',
+        );
+      }
     }
   }
  
+  console.log(
+    'Summary: ' + totalEvents + ' total events seen, ' + updated + ' field(s) updated',
+  );
   if (unknownTeams.size > 0) {
     console.warn(
-      'Unknown ESPN team abbreviations (extend ESPN_TO_OURS):',
-      [...unknownTeams].join(', '),
+      'Unknown ESPN abbreviations (extend ESPN_TO_OURS):',
+      [...unknownTeams].filter(Boolean).join(', '),
     );
   }
  
   if (updated > 0) {
-    // Stamp the moment we observed real changes. The UI shows
-    // "Last update: X ago" using this. We deliberately don't stamp
-    // it on every poll, only on actual data movement, so the
-    // displayed value reflects "last time scores or kickoffs
-    // changed" rather than "last poll" (which would freeze any
-    // commit-quiet stretch into a misleading "fresh" status).
     data.lastUpdated = new Date().toISOString();
     fs.writeFileSync(dataPath, JSON.stringify(data, null, 2) + '\n');
-    console.log(`Wrote ${updated} updated field(s) to data.json`);
+    console.log('Wrote ' + updated + ' field(s) to data.json');
   } else {
     console.log('No changes');
   }
