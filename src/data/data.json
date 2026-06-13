@@ -492,11 +492,11 @@
       "round": "group",
       "teamA": "CAN",
       "teamB": "BIH",
-      "scoreA": 0,
+      "scoreA": 1,
       "scoreB": 1,
-      "winner": null,
+      "winner": "draw",
       "kickoff": "2026-06-12T19:00Z",
-      "state": "in",
+      "state": "post",
       "tvChannel": "FOX"
     },
     {
@@ -636,11 +636,11 @@
       "round": "group",
       "teamA": "USA",
       "teamB": "PAR",
-      "scoreA": null,
-      "scoreB": null,
-      "winner": null,
+      "scoreA": 4,
+      "scoreB": 1,
+      "winner": "USA",
       "kickoff": "2026-06-13T01:00Z",
-      "state": "pre",
+      "state": "post",
       "tvChannel": "FOX"
     },
     {
@@ -1632,5 +1632,5 @@
       "placeholderB": "W sf-2"
     }
   ],
-  "lastUpdated": "2026-06-12T19:33:21.816Z"
+  "lastUpdated": "2026-06-13T08:32:20.171Z"
 }
