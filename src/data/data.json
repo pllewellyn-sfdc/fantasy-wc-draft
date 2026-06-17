@@ -1140,11 +1140,11 @@
       "round": "group",
       "teamA": "POR",
       "teamB": "COD",
-      "scoreA": null,
-      "scoreB": null,
-      "winner": null,
+      "scoreA": 1,
+      "scoreB": 1,
+      "winner": "draw",
       "kickoff": "2026-06-17T17:00Z",
-      "state": "pre",
+      "state": "post",
       "tvChannel": "FOX"
     },
     {
@@ -1212,11 +1212,11 @@
       "round": "group",
       "teamA": "ENG",
       "teamB": "CRO",
-      "scoreA": null,
-      "scoreB": null,
+      "scoreA": 3,
+      "scoreB": 2,
       "winner": null,
       "kickoff": "2026-06-17T20:00Z",
-      "state": "pre",
+      "state": "in",
       "tvChannel": "FOX"
     },
     {
@@ -1632,5 +1632,5 @@
       "placeholderB": "W sf-2"
     }
   ],
-  "lastUpdated": "2026-06-17T13:03:45.593Z"
+  "lastUpdated": "2026-06-17T21:22:31.778Z"
 }
