@@ -1152,11 +1152,11 @@
       "round": "group",
       "teamA": "UZB",
       "teamB": "COL",
-      "scoreA": null,
-      "scoreB": null,
-      "winner": null,
+      "scoreA": 1,
+      "scoreB": 3,
+      "winner": "COL",
       "kickoff": "2026-06-18T02:00Z",
-      "state": "pre",
+      "state": "post",
       "tvChannel": "FS1"
     },
     {
@@ -1212,11 +1212,11 @@
       "round": "group",
       "teamA": "ENG",
       "teamB": "CRO",
-      "scoreA": 3,
+      "scoreA": 4,
       "scoreB": 2,
-      "winner": null,
+      "winner": "ENG",
       "kickoff": "2026-06-17T20:00Z",
-      "state": "in",
+      "state": "post",
       "tvChannel": "FOX"
     },
     {
@@ -1224,11 +1224,11 @@
       "round": "group",
       "teamA": "GHA",
       "teamB": "PAN",
-      "scoreA": null,
-      "scoreB": null,
-      "winner": null,
+      "scoreA": 1,
+      "scoreB": 0,
+      "winner": "GHA",
       "kickoff": "2026-06-17T23:00Z",
-      "state": "pre",
+      "state": "post",
       "tvChannel": "FS1"
     },
     {
@@ -1632,5 +1632,5 @@
       "placeholderB": "W sf-2"
     }
   ],
-  "lastUpdated": "2026-06-17T21:22:31.778Z"
+  "lastUpdated": "2026-06-18T11:58:33.545Z"
 }
