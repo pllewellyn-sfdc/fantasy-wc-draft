@@ -8,7 +8,12 @@ name: Update scores and deploy
 #    Actions tab to force an immediate refresh.
 on:
   schedule:
-    - cron: '*/15 * * * *'
+    # Every 5 minutes is the practical fastest GitHub Actions cron
+    # allows. Anything tighter is silently throttled. Even at 5 min,
+    # GitHub's scheduler is best-effort and may delay a few minutes
+    # extra during peak load. For real-time you'd add client-side
+    # polling on top of this cron.
+    - cron: '*/5 * * * *'
   push:
     branches: [main]
   workflow_dispatch: {}

@@ -27,6 +27,12 @@ const GROUPS: GroupLetter[] = [
   'G', 'H', 'I', 'J', 'K', 'L',
 ];
 
+// Format a goal differential with a leading + when positive.
+// Negative numbers already include the minus sign.
+function formatGd(n: number): string {
+  return n > 0 ? '+' + n : String(n);
+}
+
 // Single landing view: leaderboard at the top, then 12 group cards
 // below with their own standings tables and a read-only list of
 // matches. There is no editing UI anywhere on the page.
@@ -69,8 +75,8 @@ export function GroupsView({
               <th>W</th>
               <th>D</th>
               <th>L</th>
-              <th>CS</th>
               <th>GF</th>
+              <th title="Goal differential across all drafted teams">GD</th>
               <th>Total</th>
             </tr>
           </thead>
@@ -86,8 +92,8 @@ export function GroupsView({
                   <td>{s.wins}</td>
                   <td>{s.draws}</td>
                   <td>{s.losses}</td>
-                  <td>{s.cleanSheets}</td>
                   <td>{s.goalsFor}</td>
+                  <td>{formatGd(s.goalDiff)}</td>
                   <td>
                     <strong>{s.total}</strong>
                   </td>
