@@ -57,13 +57,28 @@ jobs:
         run: |
           if git diff --quiet src/data/data.json; then
             echo "No score changes to commit"
-          else
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add src/data/data.json
-            git commit -m "Auto-update scores from ESPN"
-            git push
+            exit 0
           fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/data.json
+          git commit -m "Auto-update scores from ESPN"
+          # Push with rebase fallback. The workflow checks out main
+          # at commit X, polls ESPN for ~30 seconds, then pushes. If
+          # someone (a user, or another cron run) pushed in the
+          # interim, our push is rejected non-fast-forward. Pull
+          # with rebase replays our score commit on top of theirs
+          # and tries again. Three attempts is plenty in practice.
+          for attempt in 1 2 3; do
+            if git push; then
+              echo "Pushed on attempt $attempt"
+              exit 0
+            fi
+            echo "Push rejected on attempt $attempt; rebasing"
+            git pull --rebase origin main || true
+          done
+          echo "Push still failing after 3 attempts; build will deploy from local copy and the next cron tick will retry"
+          exit 0
 
       - name: Install dependencies
         run: npm install --no-audit --no-fund
