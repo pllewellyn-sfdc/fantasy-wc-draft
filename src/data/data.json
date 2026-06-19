@@ -444,11 +444,11 @@
       "round": "group",
       "teamA": "MEX",
       "teamB": "KOR",
-      "scoreA": null,
-      "scoreB": null,
-      "winner": null,
+      "scoreA": 1,
+      "scoreB": 0,
+      "winner": "MEX",
       "kickoff": "2026-06-19T01:00Z",
-      "state": "pre",
+      "state": "post",
       "tvChannel": "FOX"
     },
     {
@@ -516,11 +516,11 @@
       "round": "group",
       "teamA": "CAN",
       "teamB": "QAT",
-      "scoreA": null,
-      "scoreB": null,
-      "winner": null,
+      "scoreA": 6,
+      "scoreB": 0,
+      "winner": "CAN",
       "kickoff": "2026-06-18T22:00Z",
-      "state": "pre",
+      "state": "post",
       "tvChannel": "FS1"
     },
     {
@@ -1632,5 +1632,5 @@
       "placeholderB": "W sf-2"
     }
   ],
-  "lastUpdated": "2026-06-18T21:32:06.460Z"
+  "lastUpdated": "2026-06-19T12:37:02.607Z"
 }
