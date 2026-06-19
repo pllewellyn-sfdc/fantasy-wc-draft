@@ -600,11 +600,11 @@
       "round": "group",
       "teamA": "SCO",
       "teamB": "MAR",
-      "scoreA": null,
-      "scoreB": null,
+      "scoreA": 0,
+      "scoreB": 1,
       "winner": null,
       "kickoff": "2026-06-19T22:00Z",
-      "state": "pre",
+      "state": "in",
       "tvChannel": "FOX"
     },
     {
@@ -660,11 +660,11 @@
       "round": "group",
       "teamA": "USA",
       "teamB": "AUS",
-      "scoreA": 1,
+      "scoreA": 2,
       "scoreB": 0,
-      "winner": null,
+      "winner": "USA",
       "kickoff": "2026-06-19T19:00Z",
-      "state": "in",
+      "state": "post",
       "tvChannel": "FOX"
     },
     {
@@ -1632,5 +1632,5 @@
       "placeholderB": "W sf-2"
     }
   ],
-  "lastUpdated": "2026-06-19T19:16:11.454Z"
+  "lastUpdated": "2026-06-19T22:38:09.175Z"
 }
