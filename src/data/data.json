@@ -660,11 +660,11 @@
       "round": "group",
       "teamA": "USA",
       "teamB": "AUS",
-      "scoreA": null,
-      "scoreB": null,
+      "scoreA": 1,
+      "scoreB": 0,
       "winner": null,
       "kickoff": "2026-06-19T19:00Z",
-      "state": "pre",
+      "state": "in",
       "tvChannel": "FOX"
     },
     {
@@ -1632,5 +1632,5 @@
       "placeholderB": "W sf-2"
     }
   ],
-  "lastUpdated": "2026-06-19T12:37:02.607Z"
+  "lastUpdated": "2026-06-19T19:16:11.454Z"
 }
