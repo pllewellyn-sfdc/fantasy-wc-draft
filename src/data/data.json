@@ -732,11 +732,11 @@
       "round": "group",
       "teamA": "GER",
       "teamB": "CIV",
-      "scoreA": null,
-      "scoreB": null,
+      "scoreA": 0,
+      "scoreB": 1,
       "winner": null,
       "kickoff": "2026-06-20T20:00Z",
-      "state": "pre",
+      "state": "in",
       "tvChannel": "FOX"
     },
     {
@@ -804,11 +804,11 @@
       "round": "group",
       "teamA": "NED",
       "teamB": "SWE",
-      "scoreA": null,
-      "scoreB": null,
-      "winner": null,
+      "scoreA": 5,
+      "scoreB": 1,
+      "winner": "NED",
       "kickoff": "2026-06-20T17:00Z",
-      "state": "pre",
+      "state": "post",
       "tvChannel": "FOX"
     },
     {
@@ -1632,5 +1632,5 @@
       "placeholderB": "W sf-2"
     }
   ],
-  "lastUpdated": "2026-06-20T10:14:23.264Z"
+  "lastUpdated": "2026-06-20T20:52:15.846Z"
 }
