@@ -876,11 +876,11 @@
       "round": "group",
       "teamA": "BEL",
       "teamB": "IRN",
-      "scoreA": null,
-      "scoreB": null,
-      "winner": null,
+      "scoreA": 0,
+      "scoreB": 0,
+      "winner": "draw",
       "kickoff": "2026-06-21T19:00Z",
-      "state": "pre",
+      "state": "post",
       "tvChannel": "FS1"
     },
     {
@@ -948,11 +948,11 @@
       "round": "group",
       "teamA": "ESP",
       "teamB": "KSA",
-      "scoreA": 3,
+      "scoreA": 4,
       "scoreB": 0,
-      "winner": null,
+      "winner": "ESP",
       "kickoff": "2026-06-21T16:00Z",
-      "state": "in",
+      "state": "post",
       "tvChannel": "FOX"
     },
     {
@@ -1632,5 +1632,5 @@
       "placeholderB": "W sf-2"
     }
   ],
-  "lastUpdated": "2026-06-21T16:56:40.127Z"
+  "lastUpdated": "2026-06-21T22:00:54.392Z"
 }
