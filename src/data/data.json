@@ -888,11 +888,11 @@
       "round": "group",
       "teamA": "NZL",
       "teamB": "EGY",
-      "scoreA": null,
-      "scoreB": null,
-      "winner": null,
+      "scoreA": 1,
+      "scoreB": 3,
+      "winner": "EGY",
       "kickoff": "2026-06-22T01:00Z",
-      "state": "pre",
+      "state": "post",
       "tvChannel": "FS1"
     },
     {
@@ -960,11 +960,11 @@
       "round": "group",
       "teamA": "URU",
       "teamB": "CPV",
-      "scoreA": null,
-      "scoreB": null,
-      "winner": null,
+      "scoreA": 2,
+      "scoreB": 2,
+      "winner": "draw",
       "kickoff": "2026-06-21T22:00Z",
-      "state": "pre",
+      "state": "post",
       "tvChannel": "FS1"
     },
     {
@@ -1632,5 +1632,5 @@
       "placeholderB": "W sf-2"
     }
   ],
-  "lastUpdated": "2026-06-21T22:00:54.392Z"
+  "lastUpdated": "2026-06-22T16:15:59.844Z"
 }
