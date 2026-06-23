@@ -833,7 +833,7 @@
       "winner": null,
       "kickoff": "2026-06-25T23:00Z",
       "state": "pre",
-      "tvChannel": "FOX"
+      "tvChannel": "FS1"
     },
     {
       "id": "g-F6",
@@ -845,7 +845,7 @@
       "winner": null,
       "kickoff": "2026-06-25T23:00Z",
       "state": "pre",
-      "tvChannel": "FS1"
+      "tvChannel": "FOX"
     },
     {
       "id": "g-G1",
@@ -1020,11 +1020,11 @@
       "round": "group",
       "teamA": "FRA",
       "teamB": "IRQ",
-      "scoreA": 1,
+      "scoreA": 3,
       "scoreB": 0,
-      "winner": null,
+      "winner": "FRA",
       "kickoff": "2026-06-22T21:00Z",
-      "state": "in",
+      "state": "post",
       "tvChannel": "FOX"
     },
     {
@@ -1032,11 +1032,11 @@
       "round": "group",
       "teamA": "NOR",
       "teamB": "SEN",
-      "scoreA": null,
-      "scoreB": null,
-      "winner": null,
+      "scoreA": 3,
+      "scoreB": 2,
+      "winner": "NOR",
       "kickoff": "2026-06-23T00:00Z",
-      "state": "pre",
+      "state": "post",
       "tvChannel": "FOX"
     },
     {
@@ -1104,11 +1104,11 @@
       "round": "group",
       "teamA": "JOR",
       "teamB": "ALG",
-      "scoreA": null,
-      "scoreB": null,
-      "winner": null,
+      "scoreA": 1,
+      "scoreB": 2,
+      "winner": "ALG",
       "kickoff": "2026-06-23T03:00Z",
-      "state": "pre",
+      "state": "post",
       "tvChannel": "FS1"
     },
     {
@@ -1632,5 +1632,5 @@
       "placeholderB": "W sf-2"
     }
   ],
-  "lastUpdated": "2026-06-22T22:28:05.045Z"
+  "lastUpdated": "2026-06-23T10:49:02.262Z"
 }
