@@ -540,11 +540,11 @@
       "round": "group",
       "teamA": "SUI",
       "teamB": "CAN",
-      "scoreA": null,
-      "scoreB": null,
-      "winner": null,
+      "scoreA": 2,
+      "scoreB": 1,
+      "winner": "SUI",
       "kickoff": "2026-06-24T19:00Z",
-      "state": "pre",
+      "state": "post",
       "tvChannel": "FOX"
     },
     {
@@ -552,11 +552,11 @@
       "round": "group",
       "teamA": "BIH",
       "teamB": "QAT",
-      "scoreA": null,
-      "scoreB": null,
-      "winner": null,
+      "scoreA": 3,
+      "scoreB": 1,
+      "winner": "BIH",
       "kickoff": "2026-06-24T19:00Z",
-      "state": "pre",
+      "state": "post",
       "tvChannel": "FS1"
     },
     {
@@ -612,11 +612,11 @@
       "round": "group",
       "teamA": "SCO",
       "teamB": "BRA",
-      "scoreA": null,
-      "scoreB": null,
+      "scoreA": 0,
+      "scoreB": 0,
       "winner": null,
       "kickoff": "2026-06-24T22:00Z",
-      "state": "pre",
+      "state": "in",
       "tvChannel": "FOX"
     },
     {
@@ -624,11 +624,11 @@
       "round": "group",
       "teamA": "MAR",
       "teamB": "HAI",
-      "scoreA": null,
-      "scoreB": null,
+      "scoreA": 0,
+      "scoreB": 0,
       "winner": null,
       "kickoff": "2026-06-24T22:00Z",
-      "state": "pre",
+      "state": "in",
       "tvChannel": "FS1"
     },
     {
@@ -1632,5 +1632,5 @@
       "placeholderB": "W sf-2"
     }
   ],
-  "lastUpdated": "2026-06-24T10:29:13.912Z"
+  "lastUpdated": "2026-06-24T22:02:59.479Z"
 }
