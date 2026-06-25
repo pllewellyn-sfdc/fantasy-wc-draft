@@ -468,11 +468,11 @@
       "round": "group",
       "teamA": "CZE",
       "teamB": "MEX",
-      "scoreA": null,
-      "scoreB": null,
-      "winner": null,
+      "scoreA": 0,
+      "scoreB": 3,
+      "winner": "MEX",
       "kickoff": "2026-06-25T01:00Z",
-      "state": "pre",
+      "state": "post",
       "tvChannel": "FOX"
     },
     {
@@ -480,11 +480,11 @@
       "round": "group",
       "teamA": "RSA",
       "teamB": "KOR",
-      "scoreA": null,
-      "scoreB": null,
-      "winner": null,
+      "scoreA": 1,
+      "scoreB": 0,
+      "winner": "RSA",
       "kickoff": "2026-06-25T01:00Z",
-      "state": "pre",
+      "state": "post",
       "tvChannel": "FS1"
     },
     {
@@ -613,10 +613,10 @@
       "teamA": "SCO",
       "teamB": "BRA",
       "scoreA": 0,
-      "scoreB": 0,
-      "winner": null,
+      "scoreB": 3,
+      "winner": "BRA",
       "kickoff": "2026-06-24T22:00Z",
-      "state": "in",
+      "state": "post",
       "tvChannel": "FOX"
     },
     {
@@ -624,11 +624,11 @@
       "round": "group",
       "teamA": "MAR",
       "teamB": "HAI",
-      "scoreA": 0,
-      "scoreB": 0,
-      "winner": null,
+      "scoreA": 4,
+      "scoreB": 2,
+      "winner": "MAR",
       "kickoff": "2026-06-24T22:00Z",
-      "state": "in",
+      "state": "post",
       "tvChannel": "FS1"
     },
     {
@@ -1632,5 +1632,5 @@
       "placeholderB": "W sf-2"
     }
   ],
-  "lastUpdated": "2026-06-24T22:02:59.479Z"
+  "lastUpdated": "2026-06-25T10:21:08.636Z"
 }
