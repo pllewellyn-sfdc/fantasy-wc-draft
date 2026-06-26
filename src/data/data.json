@@ -1044,11 +1044,11 @@
       "round": "group",
       "teamA": "NOR",
       "teamB": "FRA",
-      "scoreA": null,
-      "scoreB": null,
-      "winner": null,
+      "scoreA": 1,
+      "scoreB": 4,
+      "winner": "FRA",
       "kickoff": "2026-06-26T19:00Z",
-      "state": "pre",
+      "state": "post",
       "tvChannel": "FOX"
     },
     {
@@ -1056,11 +1056,11 @@
       "round": "group",
       "teamA": "SEN",
       "teamB": "IRQ",
-      "scoreA": null,
-      "scoreB": null,
-      "winner": null,
+      "scoreA": 5,
+      "scoreB": 0,
+      "winner": "SEN",
       "kickoff": "2026-06-26T19:00Z",
-      "state": "pre",
+      "state": "post",
       "tvChannel": "FS1"
     },
     {
@@ -1632,5 +1632,5 @@
       "placeholderB": "W sf-2"
     }
   ],
-  "lastUpdated": "2026-06-26T10:38:17.386Z"
+  "lastUpdated": "2026-06-26T21:50:54.867Z"
 }
