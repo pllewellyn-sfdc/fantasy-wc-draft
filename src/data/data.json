@@ -1116,11 +1116,11 @@
       "round": "group",
       "teamA": "JOR",
       "teamB": "ARG",
-      "scoreA": null,
-      "scoreB": null,
-      "winner": null,
+      "scoreA": 1,
+      "scoreB": 3,
+      "winner": "ARG",
       "kickoff": "2026-06-28T02:00Z",
-      "state": "pre",
+      "state": "post",
       "tvChannel": "FOX"
     },
     {
@@ -1128,11 +1128,11 @@
       "round": "group",
       "teamA": "ALG",
       "teamB": "AUT",
-      "scoreA": null,
-      "scoreB": null,
-      "winner": null,
+      "scoreA": 3,
+      "scoreB": 3,
+      "winner": "draw",
       "kickoff": "2026-06-28T02:00Z",
-      "state": "pre",
+      "state": "post",
       "tvChannel": "FS1"
     },
     {
@@ -1188,11 +1188,11 @@
       "round": "group",
       "teamA": "COL",
       "teamB": "POR",
-      "scoreA": null,
-      "scoreB": null,
-      "winner": null,
+      "scoreA": 0,
+      "scoreB": 0,
+      "winner": "draw",
       "kickoff": "2026-06-27T23:30Z",
-      "state": "pre",
+      "state": "post",
       "tvChannel": "FOX"
     },
     {
@@ -1200,11 +1200,11 @@
       "round": "group",
       "teamA": "COD",
       "teamB": "UZB",
-      "scoreA": null,
-      "scoreB": null,
-      "winner": null,
+      "scoreA": 3,
+      "scoreB": 1,
+      "winner": "COD",
       "kickoff": "2026-06-27T23:30Z",
-      "state": "pre",
+      "state": "post",
       "tvChannel": "FS1"
     },
     {
@@ -1260,11 +1260,11 @@
       "round": "group",
       "teamA": "PAN",
       "teamB": "ENG",
-      "scoreA": null,
-      "scoreB": null,
-      "winner": null,
+      "scoreA": 0,
+      "scoreB": 2,
+      "winner": "ENG",
       "kickoff": "2026-06-27T21:00Z",
-      "state": "pre",
+      "state": "post",
       "tvChannel": "FOX"
     },
     {
@@ -1272,11 +1272,11 @@
       "round": "group",
       "teamA": "CRO",
       "teamB": "GHA",
-      "scoreA": null,
-      "scoreB": null,
-      "winner": null,
+      "scoreA": 2,
+      "scoreB": 1,
+      "winner": "CRO",
       "kickoff": "2026-06-27T21:00Z",
-      "state": "pre",
+      "state": "post",
       "tvChannel": "FS1"
     },
     {
@@ -1632,5 +1632,5 @@
       "placeholderB": "W sf-2"
     }
   ],
-  "lastUpdated": "2026-06-27T08:11:13.067Z"
+  "lastUpdated": "2026-06-28T08:33:03.405Z"
 }
